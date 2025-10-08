@@ -1,4 +1,4 @@
-# Lib Iridium
+# TOLOSAT Iridium Library
 
 This folder contains source files for Iridium Driver and Iridium PUS Services. The datasheet used for this driver is "ISU AT Command Reference, MAN0009 Version 5, 25 August 2014".
 
