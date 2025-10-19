@@ -19,16 +19,24 @@
 
 /***************************** Types Definitions *****************************/
 
+/**
+ * @struct  pusS193Env_t
+ * @brief   Struct type definition of a PUS193 (Iridium) environment instance
+ */
+typedef struct
+{
+    iridiumInst_t *p_iridium_inst;
+} pusS193Env_t;
+
 /*************************** Variables Declarations **************************/
 
 /*************************** Functions Declarations **************************/
 
-extern returnCode_t InitS193(iridiumInst_t *iridium_inst);
-extern returnCode_t ExecuteS193SS1(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
-extern returnCode_t ExecuteS193SS2(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
-extern returnCode_t ExecuteS193SS3(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
-extern returnCode_t ExecuteS193SS5(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
-extern returnCode_t ExecuteS193SS7(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
-extern returnCode_t ExecuteS193SS8(pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS1(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS2(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS3(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS5(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS7(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
+extern returnCode_t ExecuteS193SS8(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionError_t *error_code);
 
 #endif /* PUS193_H */
