@@ -45,14 +45,14 @@ returnCode_t ExecuteS193SS1(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     // Check parameter(s)
     if ((env != NULL) && (error_code != NULL))
     {
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             // Error code Initialization
             *error_code = PUS_EXECUTION_NO_ERROR;
 
             // Start Iridium Iridium Driver
-            return_value = IridiumStart(pus_193_env->p_iridium_inst);
+            return_value = IridiumStart(pus193_env->p_iridium_inst);
             if (return_value != RET_SUCCESSFUL)
             {
                 *error_code = PUS_EXECUTION_FAILED;
@@ -94,14 +94,14 @@ returnCode_t ExecuteS193SS2(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     // Check parameter(s)
     if ((env != NULL) && (error_code != NULL))
     {
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             // Error code Initialization
             *error_code = PUS_EXECUTION_NO_ERROR;
 
             // Start Iridium Iridium Driver
-            return_value = IridiumStop(pus_193_env->p_iridium_inst);
+            return_value = IridiumStop(pus193_env->p_iridium_inst);
             if (return_value != RET_SUCCESSFUL)
             {
                 *error_code = PUS_EXECUTION_FAILED;
@@ -143,8 +143,8 @@ returnCode_t ExecuteS193SS3(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     if ((env != NULL) && (error_code != NULL))
     {
         // Get PUS 193 environment
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             uint8_t network_availability = 0u; // Use a uint8_t for network availability to ensure having a constant size
 
@@ -152,7 +152,7 @@ returnCode_t ExecuteS193SS3(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
             *error_code = PUS_EXECUTION_NO_ERROR;
 
             // GetStatus
-            return_value = IridiumGetNetworkAvailability(pus_193_env->p_iridium_inst, &network_availability);
+            return_value = IridiumGetNetworkAvailability(pus193_env->p_iridium_inst, &network_availability);
             if (return_value == RET_SUCCESSFUL)
             {
                 return_value = BuildTM(tm, 193u, 4u, (data_t)&network_availability, sizeof(uint8_t));
@@ -202,8 +202,8 @@ returnCode_t ExecuteS193SS5(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     if ((env != NULL) && (error_code != NULL))
     {
         // Get PUS 193 environment
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             iridiumSBDStatus_t status = { 0 };
 
@@ -211,7 +211,7 @@ returnCode_t ExecuteS193SS5(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
             *error_code = PUS_EXECUTION_NO_ERROR;
 
             // GetStatus
-            return_value = IridiumGetSBDStatus(pus_193_env->p_iridium_inst, &status);
+            return_value = IridiumGetSBDStatus(pus193_env->p_iridium_inst, &status);
             if (return_value == RET_SUCCESSFUL)
             {
                 return_value = BuildTM(tm, 193u, 6u, (data_t)&status, sizeof(iridiumSBDStatus_t));
@@ -261,8 +261,8 @@ returnCode_t ExecuteS193SS7(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     if ((env != NULL) && (error_code != NULL))
     {
         // Get PUS 193 environment
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             iridiumSBDTxMsg_t tx_msg = { 0 };
             uint16_t msg_size        = 0u;
@@ -277,7 +277,7 @@ returnCode_t ExecuteS193SS7(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
             (void)memcpy(tx_msg, tc->data, msg_size);
 
             // Send the message
-            return_value = IridiumSendSBD(pus_193_env->p_iridium_inst, &tx_msg);
+            return_value = IridiumSendSBD(pus193_env->p_iridium_inst, &tx_msg);
             if (return_value != RET_SUCCESSFUL)
             {
                 *error_code = PUS_EXECUTION_FAILED;
@@ -319,8 +319,8 @@ returnCode_t ExecuteS193SS8(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
     if ((env != NULL) && (error_code != NULL))
     {
         // Get PUS 193 environment
-        pusS193Env_t *pus_193_env = (pusS193Env_t *)env;
-        if (pus_193_env->p_iridium_inst != NULL)
+        pus193Env_t *pus193_env = (pus193Env_t *)env;
+        if (pus193_env->p_iridium_inst != NULL)
         {
             iridiumSBDRxMsg_t rx_msg = { 0 };
 
@@ -328,7 +328,7 @@ returnCode_t ExecuteS193SS8(void *env, pusTC_t *tc, pusTM_t *tm, pusExecutionErr
             *error_code = PUS_EXECUTION_NO_ERROR;
 
             // Send the message
-            return_value = IridiumReceiveSBD(pus_193_env->p_iridium_inst, &rx_msg);
+            return_value = IridiumReceiveSBD(pus193_env->p_iridium_inst, &rx_msg);
             if (return_value == RET_SUCCESSFUL)
             {
                 return_value = BuildTM(tm, 193u, 6u, (data_t)&rx_msg, sizeof(iridiumSBDRxMsg_t));

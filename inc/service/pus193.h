@@ -20,13 +20,13 @@
 /***************************** Types Definitions *****************************/
 
 /**
- * @struct  pusS193Env_t
+ * @struct  pus193Env_t
  * @brief   Struct type definition of a PUS193 (Iridium) environment instance
  */
 typedef struct
 {
-    iridiumInst_t *p_iridium_inst;
-} pusS193Env_t;
+    iridiumInst_t *p_iridium_inst; /**< Pointer to the Iridium instance */
+} pus193Env_t;
 
 /*************************** Variables Declarations **************************/
 
