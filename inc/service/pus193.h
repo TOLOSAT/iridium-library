@@ -4,7 +4,7 @@
  * @author  Merlin Kooshmanian
  * @brief   Header file for PUS 193 (Iridium) functions
  *
- * @copyright Copyright (c) TOLOSAT 2025
+ * @copyright Copyright (c) TOLOSAT 2026
  */
 
 #ifndef PUS193_H
