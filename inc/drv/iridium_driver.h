@@ -231,11 +231,89 @@ typedef struct
 
 /*************************** Functions Declarations **************************/
 
+/**
+ * @fn              IridiumStart(iridiumInst_t *iridium_inst)
+ * @brief           Start a connection with the Iridium transceiver
+ * @param[in,out]   iridium_inst Iridium instance used by the driver
+ * @retval          #RET_INVALID_PARAM if there is a null pointer
+ * @retval          #RET_TIMEOUT if uart read or write has timeouted
+ * @retval          #RET_ERROR if an error occured during the initialisation
+ * @retval          #RET_SUCCESSFUL if the start procedure went well
+ */
 extern returnCode_t IridiumStart(iridiumInst_t *iridium_inst);
+
+/**
+ * @fn          IridiumSendSBD(iridiumInst_t *iridium_inst, iridiumSBDTxMsg_t *tx_msg)
+ * @brief       This function sends a message through SBD
+ * @param[in]   iridium_inst Iridium instance used by the driver
+ * @param[in]   tx_msg Message to be sent
+ * @retval      #RET_INVALID_PARAM if there is a null pointer
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_NOT_AVAILABLE if iridium transceiver is not available
+ * @retval      #RET_NOT_AVAILABLE if iridium network is not available
+ * @retval      #RET_ERROR if an error occured during the discussion with the transceiver
+ * @retval      #RET_SUCCESSFUL else
+ */
 extern returnCode_t IridiumSendSBD(iridiumInst_t *iridium_inst, iridiumSBDTxMsg_t *tx_msg);
+
+/**
+ * @fn          IridiumReceiveSBD(iridiumInst_t *iridium_inst, iridiumSBDRxMsg_t *rx_msg)
+ * @brief       This function sends a message through SBD
+ * @param[in]   iridium_inst Iridium instance used by the driver
+ * @param[in]   rx_msg Received message
+ * @retval      #RET_INVALID_PARAM if there is a null pointer
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_NOT_AVAILABLE if iridium transceiver is not available
+ * @retval      #RET_NOT_AVAILABLE if iridium network is not available
+ * @retval      #RET_NOT_AVAILABLE no message is available from the iridium constellation
+ * @retval      #RET_ERROR if an error occured during the discussion with the transceiver
+ * @retval      #RET_SUCCESSFUL else
+ */
 extern returnCode_t IridiumReceiveSBD(iridiumInst_t *iridium_inst, iridiumSBDRxMsg_t *rx_msg);
+
+/**
+ * @fn          IridiumGetNetworkAvailability(iridiumInst_t *iridium_inst, iridiumNetworkAvailability_t *availability)
+ * @brief       This function sends a message through SBD
+ * @param[in]   iridium_inst Iridium instance used by the driver
+ * @param[out]  availability Availability of the network
+ * @retval      #RET_INVALID_PARAM if there is a null pointer
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_NOT_AVAILABLE if iridium transceiver is not available
+ * @retval      #RET_NOT_AVAILABLE if iridium network is not available
+ * @retval      #RET_NOT_AVAILABLE no message is available from the iridium constellation
+ * @retval      #RET_ERROR if an error occured during the discussion with the transceiver
+ * @retval      #RET_SUCCESSFUL else
+ */
 extern returnCode_t IridiumGetNetworkAvailability(iridiumInst_t *iridium_inst, iridiumNetworkAvailability_t *availability);
+
+/**
+ * @fn          IridiumGetSBDStatus(iridiumInst_t *iridium_inst, iridiumSBDStatus_t *status)
+ * @brief       This function sends a message through SBD
+ * @param[in]   iridium_inst Iridium instance used by the driver
+ * @param[out]  status Struct including all the relevant information for the SBD
+ * @retval      #RET_INVALID_PARAM if there is a null pointer
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_TIMEOUT if uart read or write has timeouted
+ * @retval      #RET_NOT_AVAILABLE if iridium transceiver is not available
+ * @retval      #RET_NOT_AVAILABLE if iridium network is not available
+ * @retval      #RET_NOT_AVAILABLE no message is available from the iridium constellation
+ * @retval      #RET_ERROR if an error occured during the discussion with the transceiver
+ * @retval      #RET_SUCCESSFUL else
+ */
 extern returnCode_t IridiumGetSBDStatus(iridiumInst_t *iridium_inst, iridiumSBDStatus_t *status);
+
+/**
+ * @fn          IridiumStop(iridiumInst_t *iridium_inst)
+ * @brief       Stop Iridium transceiver
+ * @param[in]   iridium_inst Iridium instance used by the driver
+ * @retval      #RET_INVALID_PARAM if iridium_inst is a null pointer
+ * @retval      #RET_NOT_AVAILABLE if iridium is busy doing something
+ * @retval      #RET_ERROR if an error occured during the discussion with the transceiver
+ * @retval      #RET_SUCCESSFUL else
+ */
 extern returnCode_t IridiumStop(iridiumInst_t *iridium_inst);
 
 #endif /* IRIDIUM_DRIVER_H */
