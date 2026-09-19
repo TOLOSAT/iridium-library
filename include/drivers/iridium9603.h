@@ -1,5 +1,5 @@
 /**
- * @file    iridium_driver.h
+ * @file    iridium9603.h
  * @author  Merlin Kooshmanian
  * @brief   Header file for Iridium Driver
  *
@@ -14,8 +14,8 @@
  * @{
  */
 
-#ifndef IRIDIUM_DRIVER_H
-#define IRIDIUM_DRIVER_H
+#ifndef IRIDIUM9603_H
+#define IRIDIUM9603_H
 
 /******************************* Include Files *******************************/
 
@@ -316,7 +316,7 @@ extern returnCode_t IridiumGetSBDStatus(iridiumInst_t *iridium_inst, iridiumSBDS
  */
 extern returnCode_t IridiumStop(iridiumInst_t *iridium_inst);
 
-#endif /* IRIDIUM_DRIVER_H */
+#endif /* IRIDIUM9603_H */
 
 /**
  * @}

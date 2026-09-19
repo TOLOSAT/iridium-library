@@ -1,5 +1,5 @@
 /**
- * @file    iridium_driver.c
+ * @file    iridium9603.c
  * @author  Merlin Kooshmanian
  * @brief   Source file for Iridium Driver
  *
@@ -11,7 +11,7 @@
 #include <string.h>
 
 #include "kernel.h"
-#include "drv/iridium_driver.h"
+#include "drivers/iridium9603.h"
 #include "at_commands.h"
 
 /***************************** Macros Definitions ****************************/
