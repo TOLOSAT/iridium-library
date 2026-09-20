@@ -1,14 +1,30 @@
 # TOLOSAT Iridium Library
 
-This folder contains source files for Iridium Driver and Iridium PUS Services. The datasheet used for this driver is "ISU AT Command Reference, MAN0009 Version 5, 25 August 2014".
+This library contains the Iridium 9603 modem driver and the associated PUS 193 service used by the flight software. The driver is based on *ISU AT Command Reference, MAN0009, version 5, 25 August 2014*.
+
+## Layout
+
+- `include/drivers/iridium9603.h` exports the modem driver API;
+- `include/service/pus193.h` exports the service API;
+- `components/drivers/` contains the driver implementation and private AT command definitions;
+- `components/service/` contains the PUS 193 implementation.
+
+From the parent flight-software repository:
+
+```bash
+make iridium
+make iridium-verif
+make iridium-clean
+```
+
+The archive is written to `build/libs/libiridium.a`.
 
 ## Acronyms
 
-| Acronym | Definition                                                                              |
-|---------|-----------------------------------------------------------------------------------------|
-| DTE     | Data Terminal Equipment (here the OBC).                                                 |
-| DTR     | Data Terminal Ready, physical pin used by the DTE to the ISU to inform if ready or not. |
-| ISU     | Iridium Subscriber Unit.                                                                |
-| MO      | Mobile Originated (here TX or SAT -> GND connection).                                   |
-| MT      | Mobile Terminated (here RX or GND -> SAT connection).                                   |
-
+| Acronym | Definition |
+|---------|------------|
+| DTE | Data Terminal Equipment, here the on-board computer. |
+| DTR | Data Terminal Ready, the physical readiness signal from the DTE. |
+| ISU | Iridium Subscriber Unit. |
+| MO | Mobile Originated, satellite-to-ground transmission. |
+| MT | Mobile Terminated, ground-to-satellite reception. |
