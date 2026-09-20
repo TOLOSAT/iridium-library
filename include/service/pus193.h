@@ -5,6 +5,7 @@
  * @brief   Header file for PUS 193 (Iridium) functions
  *
  * @copyright Copyright (c) TOLOSAT 2026
+ * SPDX-License-Identifier: Apache-2.0
  */
 
 #ifndef PUS193_H

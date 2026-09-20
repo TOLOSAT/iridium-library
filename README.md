@@ -28,3 +28,8 @@ The archive is written to `build/libs/libiridium.a`.
 | ISU | Iridium Subscriber Unit. |
 | MO | Mobile Originated, satellite-to-ground transmission. |
 | MT | Mobile Terminated, ground-to-satellite reception. |
+
+## License
+
+This library is licensed under the Apache License 2.0. See [`LICENSE`](LICENSE)
+for details.
