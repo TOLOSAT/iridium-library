@@ -15,8 +15,15 @@ PATCH = 1
 
 LIB_NAME = iridium
 
-# Main recipe
+.PHONY : all clean
+
+# Main recipes
 all : build
+
+clean : build-clean
+
+print-%:
+	@printf '%s = %s\n' '$*' '$($*)'
 
 ##############################################
 ################## INCLUDES ##################
