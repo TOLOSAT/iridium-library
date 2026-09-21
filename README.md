@@ -19,6 +19,10 @@ make iridium-clean
 
 The archive is written to `build/libs/libiridium.a`.
 
+## Configuration
+
+Library options belong in `gen/Kconfig.options`. The parent project sources this fragment and generates a library-scoped `autoconf.h`; the fragment is currently empty. A standalone checkout can maintain its own configuration with `make default_defconfig` and `make menuconfig`. Initialise the `tools/` submodule recursively before generating or building from a standalone checkout.
+
 ## Acronyms
 
 | Acronym | Definition |
